@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "src": "/api/login",
+      "dest": "/server/login.js"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ]
+}
