@@ -1,13 +1,10 @@
 {
-    "name": "xlogin",
-    "version": "1.0.0",
-    "description": "Simple login system with Node.js, Express, and body-parser",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "express": "^4.18.2"
-    }
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'No build command specified'"  # Add your actual build command if needed
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
+  }
 }
