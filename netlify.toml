@@ -1,4 +1,8 @@
 [build]
-  command = "npm install && npm run build"
-  functions = "server.js"
-  publish = "public"
+  command = "npm run build"  # Replace this with the actual build command if needed
+  publish = "public"         # Replace this with the build output directory
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
