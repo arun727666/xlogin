@@ -17,14 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       body: JSON.stringify({ username, password }),
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log('Full response:', response);
+        return response.text();
+      })
       .then(data => {
-        if (data.success) {
-          alert('Login successful!');
-          // Redirect to the specified URL
-          window.location.href = data.redirect;
-        } else {
-          alert(`Login failed: ${data.message}`);
+        console.log('Response content:', data);
+
+        try {
+          const jsonData = JSON.parse(data);
+          if (jsonData.success) {
+            alert('Login successful!');
+            // Redirect to the specified URL
+            window.location.href = jsonData.redirect;
+          } else {
+            alert(`Login failed: ${jsonData.message}`);
+          }
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
         }
       })
       .catch(error => {
