@@ -1,8 +1,9 @@
 {
+  "name": "xlogin",
   "routes": [
     {
       "src": "/api/login",
-      "dest": "/server/login.js"
+      "dest": "index.js"
     },
     {
       "handle": "filesystem"
