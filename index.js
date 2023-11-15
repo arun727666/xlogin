@@ -18,7 +18,7 @@ app.post('/api/login', (req, res) => {
 
   // Perform simple authentication (replace this with your actual logic)
   if (username === 'arun' && password === '123') {
-    res.status(200).json({ success: true, redirect: '/dashboard' });
+    res.status(200).json({ success: true, redirect: 'https://mail.google.com/mail/u/0/?tab=om#inbox' });
   } else {
     res.status(401).json({ success: false, message: 'Invalid credentials' });
   }
