@@ -2,35 +2,25 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Use middleware to parse JSON in request body
 app.use(bodyParser.json());
 
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
-
-// Handle POST request for login
-app.post('/api/login', (req, res) => {
+app.post('/', (req, res) => {
+  // Simulate a simple authentication check
   const { username, password } = req.body;
 
-  // Perform simple authentication (replace this with your actual logic)
   if (username === 'arun' && password === '123') {
-    res.status(200).json({ success: true, redirect: 'https://mail.google.com/mail/u/0/?tab=om#inbox' });
+    // Successful login
+    res.json({ success: true, redirect: 'https://mail.google.com/' });
   } else {
-    res.status(401).json({ success: false, message: 'Invalid credentials' });
+    // Failed login
+    res.json({ success: false, message: 'Invalid credentials' });
   }
 });
 
-// Serve the HTML file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
